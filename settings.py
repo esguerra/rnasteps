@@ -4,7 +4,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@domain.com'),
+     ('Mauricio Esguerra', 'mauricio.esguerra@gmail.com'),
 )
 
 MANAGERS = ADMINS
@@ -76,7 +76,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 ROOT_URLCONF = 'rnadimer.urls'
 
-TEMPLATE_DIRS = ("/home/esguerra/rnadimer/html/django_templates",
+TEMPLATE_DIRS = ("/home/esguerra/rnadimer/html",
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.

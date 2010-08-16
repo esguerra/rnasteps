@@ -13,7 +13,7 @@ def step_view(request):
     return render_to_response('steptables/index.html',
     {'step_list': Steps.objects.order_by('-shift')},
     context_instance = RequestContext(request))
-    current_page = RequestContext(request)
+#    current_page = RequestContext(request)
 
 #def slide_view(request):
 #    m_list = Steps.objects.order_by('-slide')
