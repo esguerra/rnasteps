@@ -5,7 +5,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('rnadimer.steptables.views',
     (r'^', 'step_view'),
-#    (r'^', 'slide_view'),
+#    (r'^', 'force_view'),
 #
     (r'^admin/(.*)', admin.site.root),
 )

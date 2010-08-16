@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>RNABPS-DB | STEPS</title>
+        <link rel="stylesheet" type="text/css" media="all" href="../media/css/reset.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="../media/css/main.css" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    </head>
+    <body>
+    <header class="group">
+        <h1 id="logo">
+            <a href="../"><img src="../media/img/logo.png" width="226" height="51" alt="Mauricio Esguerra"/></a>
+        </h1>
+        <nav>
+            <ul>
+                <li><a href="../">Home</a></li>
+                <li><a href="">Steps</a></li>
+            </ul>
+        </nav>
+    </header>
+
+{% load pagination_tags %}
+{% load sorting_tags %}
+    <h1>RNA BPS DATABASE</h1>
+    <p>Step Parameters for RNA.</p>
+
+    {% autosort step_list %}
+    {% autopaginate step_list 10 %}
+
+    <table>
+        <tr
+            <th>{% anchor steps.shift Shift %}</th>
+            <th>{% anchor steps.slide Slide %}</th>
+            <th>{% anchor steps.rise Rise %}</th>
+            <th>{% anchor steps.tilt Tilt %}</th>
+            <th>{% anchor steps.roll Roll %}</th>
+            <th>{% anchor steps.twist Twist %}</th>
+        </tr>
+        {% for steps in step_list %}
+        <tr>
+            <td>{{ steps.shift }}</td>
+            <td>{{ steps.slide }}</td>
+            <td>{{ steps.rise }}</td>
+            <td>{{ steps.tilt }}</td>
+            <td>{{ steps.roll }}</td>
+            <td>{{ steps.twist }}</td>
+        </tr>
+        {% endfor %}
+        
+    </table>
+     
+    {% paginate %}
+
+
+<!-- FOOTER SECTION -->
+<footer>
+    <hr/>
+    <hr/>
+    <p>&#169; 2010 Mauricio Esguerra</p>
+</footer>
+
+</body>
+</html>
