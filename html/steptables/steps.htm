@@ -28,7 +28,10 @@
     {% autopaginate step_list 10 %}
 
     <table>
-        <tr
+        <tr>
+            <th>{% anchor steps.stack_type Type %}</th>
+            <th>{% anchor steps.step_id "Step ID" %}</th>
+            <th>{% anchor steps.count Count %}</th>
             <th>{% anchor steps.shift Shift %}</th>
             <th>{% anchor steps.slide Slide %}</th>
             <th>{% anchor steps.rise Rise %}</th>
@@ -38,6 +41,10 @@
         </tr>
         {% for steps in step_list %}
         <tr>
+            <td>{{ steps.stack_type }}</td>
+            <td>{{ steps.step_id }}</td>
+            <td>{{ steps.count }}</td>
+            <td>{{ steps.shift }}</td>
             <td>{{ steps.shift }}</td>
             <td>{{ steps.slide }}</td>
             <td>{{ steps.rise }}</td>
