@@ -27,7 +27,7 @@
     {% autosort step_list %}
     {% autopaginate step_list 10 %}
 
-    <table>
+    <table border="1">
         <tr>
             <th>{% anchor steps.stack_type Type %}</th>
             <th>{% anchor steps.step_id "Step ID" %}</th>
@@ -44,7 +44,6 @@
             <td>{{ steps.stack_type }}</td>
             <td>{{ steps.step_id }}</td>
             <td>{{ steps.count }}</td>
-            <td>{{ steps.shift }}</td>
             <td>{{ steps.shift }}</td>
             <td>{{ steps.slide }}</td>
             <td>{{ steps.rise }}</td>
