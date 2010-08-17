@@ -125,7 +125,8 @@ header nav li a:link, header nav li a:visited {
       padding:.2em; 
       margin:0 0 0 0px; 
       border:none; 
-      text-transform:}
+      text-transform: none;
+}
 
 footer { 
       clear:both; 
@@ -162,8 +163,74 @@ img.center {
     margin-right: auto; 
 }
 
+/* TABLES STYLING  */
 
 
+#newspaper-b
+{
+	font-family: "Helvetica", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	margin: 20px 100px;
+	width: 480px;
+	text-align: left;
+	border-collapse: collapse;
+	border: 1px solid #69c;
+}
+#newspaper-b th
+{
+	padding: 15px 10px 10px 20px;
+	font-weight: normal;
+	font-size: 14px;
+	color: #039;
+}
+#newspaper-b tbody
+{
+	background: #e8edff;
+}
+#newspaper-b td
+{
+	padding: 10px;
+	color: #669;
+	border-top: 1px dashed #fff;
+}
+#newspaper-b tbody tr:hover td
+{
+	color: #339;
+	background: #d0dafd;
+}
+
+
+/* Pagination */
+.pagination {
+    font-weight: bold;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-top: 3px;
+    margin-bottom: 1em;
+    margin-left: 250px;
+}
+.pagination a {
+    padding: 2px 5px 2px 5px;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.pagination a:hover, .pagination a:active {
+    background-color: #FF3344;
+    border: 1px solid #FF3344;
+}
+.pagination .current {
+    padding: 2px 5px 2px 5px;
+    border: 1px solid #FF3344;
+    font-weight: bold;
+    background-color: #FF3344;
+    color: #FFFFFF;
+}
+.pagination .disabled {
+    padding: 2px 5px 2px 5px;
+    border: 1px solid #999999;
+    color: #999999;
+}
 
 
 /*-------------
