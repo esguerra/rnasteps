@@ -1,5 +1,3 @@
-# Django settings for rnadimer project.
-
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -84,10 +82,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 ROOT_URLCONF = 'rnadimer.urls'
 
 TEMPLATE_DIRS = ("/home/esguerra/rnadimer/html",
-    # os.path.join(PROJECT_DIR, 'html')
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
 )
 
 INSTALLED_APPS = (

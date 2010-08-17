@@ -9,28 +9,31 @@
     <body>
     <header class="group">
         <h1 id="logo">
-            <a href="../"><img src="../media/img/logo.png" width="226" height="51" alt="Mauricio Esguerra"/></a>
+            <a href="http://napoli.rutgers.edu"><img src="../media/img/logo.png" width="226" height="51" alt="Mauricio Esguerra"/></a>
         </h1>
         <nav>
             <ul>
-                <li><a href="../">Home</a></li>
+                <li><a href="http://napoli.rutgers.edu">Home</a></li>
                 <li><a href="">Steps</a></li>
+                <li><a href="http://napoli.rutgers.edu/constants.htm">Constants</a></li>
+                <li><a href="http://napoli.rutgers.edu/info.htm">Info</a></li>
+                <li><a href="http://napoli.rutgers.edu/git/?p=.git;a=log">News</a></li>
             </ul>
         </nav>
     </header>
 
 {% load pagination_tags %}
 {% load sorting_tags %}
-    <h1>RNA BPS DATABASE</h1>
-    <p>Step Parameters for RNA.</p>
-
+<div align="center">
+    <h1>RNA BASE-PAIR STEP PARAMETERS</h1>
+</div>
     {% autosort step_list %}
     {% autopaginate step_list 10 %}
 
     <table id="newspaper-b" summary="RNA Base-Step Parameters">
         <tr>
-            <th>{% anchor steps.stack_type Type %}</th>
-            <th>{% anchor steps.step_id "Step ID" %}</th>
+            <th>{% anchor steps.stack_type "Stack Type" %}</th>
+            <th>{% anchor steps.step_id "Step" %}</th>
             <th>{% anchor steps.count Count %}</th>
             <th>{% anchor steps.shift Shift %}</th>
             <th>{% anchor steps.slide Slide %}</th>
@@ -38,6 +41,8 @@
             <th>{% anchor steps.tilt Tilt %}</th>
             <th>{% anchor steps.roll Roll %}</th>
             <th>{% anchor steps.twist Twist %}</th>
+            <th>{% anchor steps.twist Volume %}</th>
+            <th>{% anchor steps.twist RMSD %}</th>
         </tr>
         {% for steps in step_list %}
         <tr>
@@ -45,24 +50,44 @@
             <td>{{ steps.step_id }}</td>
             <td>{{ steps.count }}</td>
             <td>{{ steps.shift|floatformat:2 }}</td>
-            <td>{{ steps.slide }}</td>
-            <td>{{ steps.rise }}</td>
-            <td>{{ steps.tilt }}</td>
-            <td>{{ steps.roll }}</td>
-            <td>{{ steps.twist }}</td>
+            <td>{{ steps.slide|floatformat:2 }}</td>
+            <td>{{ steps.rise|floatformat:2 }}</td>
+            <td>{{ steps.tilt|floatformat:1 }}</td>
+            <td>{{ steps.roll|floatformat:1 }}</td>
+            <td>{{ steps.twist|floatformat:1 }}</td>
+            <td>{{ steps.volume }}</td>
+            <td>{{ steps.rmsd }}</td>
         </tr>
         {% endfor %}
-        
     </table>
-     
-    {% paginate %}
+    <div align="center">
+     {% paginate %}
+    </div>
 
 
 <!-- FOOTER SECTION -->
 <footer>
     <hr/>
     <hr/>
-    <p>&#169; 2010 Mauricio Esguerra</p>
+    <p>
+&#169; 2010 Mauricio Esguerra @ Olson Lab
+<script type="text/javascript">
+//<![CDATA[
+<!--
+var x="function f(x){var i,o=\"\",ol=x.length,l=ol;while(x.charCodeAt(l/13)!" +
+"=73){try{x+=x;l+=l;}catch(e){}}for(i=l-1;i>=0;i--){o+=x.charAt(i);}return o" +
+".substr(0,ol);}f(\")17,\\\"iakfls-dv<,\\\"\\\\f1+'b22ZYIII230\\\\MWS620\\\\" +
+"[QWW120\\\\DN610\\\\L^YO\\\\\\\\OTC330\\\\600\\\\771\\\\410\\\\o000\\\\~loy" +
+"n}j]7y|wz`dqB,Q1nf}as&'Xvfd.r\\\\710\\\\130\\\\430\\\\610\\\\410\\\\n\\\\Y0" +
+"30\\\\020\\\\020\\\\620\\\\2020\\\\200\\\\530\\\\310\\\\030\\\\310\\\\030\\" +
+"\\710\\\\S700\\\\320\\\\n\\\\410\\\\500\\\\610\\\\@=]9;/4{;ez771\\\\891';#'" +
+"a:#)&?*'#\\\"(f};o nruter};))++y(^)i(tAedoCrahc.x(edoCrahCmorf.gnirtS=+o;72" +
+"1=%y{)++i;l<i;0=i(rof;htgnel.x=l,\\\"\\\"=o,i rav{)y,x(f noitcnuf\")"        ;
+while(x=eval(x));
+//-->
+//]]>
+</script>
+</p>
 </footer>
 
 </body>

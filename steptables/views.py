@@ -8,7 +8,7 @@ def index(request):
 
 def step_view(request):
     return render_to_response('steptables/steps.htm',
-    {'step_list': Steps.objects.order_by('-shift')},
+    {'step_list': Steps.objects.order_by('-count')},
     context_instance = RequestContext(request))
 
 #def force_view(request):
