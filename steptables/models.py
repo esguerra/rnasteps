@@ -1,5 +1,18 @@
 from django.db import models
 
+class Forces(models.Model):
+    parameter = models.CharField(max_length=30, blank=True)
+    step_id = models.CharField(max_length=24, blank=True)
+    shift = models.FloatField(null=True, blank=True)
+    slide = models.FloatField(null=True, blank=True)
+    rise = models.FloatField(null=True, blank=True)
+    tilt = models.FloatField(null=True, blank=True)
+    roll = models.FloatField(null=True, blank=True)
+    twist = models.FloatField(null=True, blank=True)
+    id = models.IntegerField(primary_key=True)
+    class Meta:
+        db_table = u'forces'
+
 class Steps(models.Model):
     stack_type = models.CharField(max_length=18, blank=True)
     step_id = models.CharField(max_length=24, blank=True)

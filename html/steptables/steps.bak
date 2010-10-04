@@ -2,21 +2,21 @@
     <head>
         <meta charset="utf-8" />
         <title>RNABPS-DB | STEPS</title>
-        <link rel="stylesheet" type="text/css" media="all" href="/media/css/reset.css" />
-        <link rel="stylesheet" type="text/css" media="all" href="/media/css/main.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="../media/css/reset.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="../media/css/main.css" />
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
     </head>
     <body>
     <header class="group">
         <h1 id="logo">
-            <a href="http://rnasteps.rutgers.edu"><img src="../media/img/logo.png" width="226" height="51" alt="Mauricio Esguerra"/></a>
+            <a href="http://napoli.rutgers.edu"><img src="../media/img/logo.png" width="226" height="51" alt="Mauricio Esguerra"/></a>
         </h1>
         <nav>
             <ul>
-                <li><a href="../../">Home</a></li>
+                <li><a href="http://napoli.rutgers.edu">Home</a></li>
                 <li><a href="">Steps</a></li>
-                <li><a href="../forces">Constants</a></li>
-                <li><a href="../../info.htm">Info</a></li>
+                <li><a href="http://napoli.rutgers.edu/constants.htm">Constants</a></li>
+                <li><a href="http://napoli.rutgers.edu/info.htm">Info</a></li>
                 <li><a href="http://napoli.rutgers.edu/git/?p=.git;a=log">News</a></li>
             </ul>
         </nav>
@@ -41,21 +41,21 @@
             <th>{% anchor steps.tilt Tilt %}</th>
             <th>{% anchor steps.roll Roll %}</th>
             <th>{% anchor steps.twist Twist %}</th>
-            <th>{% anchor steps.volume Volume %}</th>
-            <th>{% anchor steps.rmsd RMSD %}</th>
+            <th>{% anchor steps.twist Volume %}</th>
+            <th>{% anchor steps.twist RMSD %}</th>
         </tr>
         {% for steps in step_list %}
         <tr>
             <td>{{ steps.stack_type }}</td>
             <td>{{ steps.step_id }}</td>
-            <td> <a href="/media/img/{{steps.step_id}}.png">{{ steps.count }} </a></td>
+            <td>{{ steps.count }}</td>
             <td>{{ steps.shift|floatformat:2 }}</td>
             <td>{{ steps.slide|floatformat:2 }}</td>
             <td>{{ steps.rise|floatformat:2 }}</td>
             <td>{{ steps.tilt|floatformat:1 }}</td>
             <td>{{ steps.roll|floatformat:1 }}</td>
             <td>{{ steps.twist|floatformat:1 }}</td>
-            <td>{{ steps.volume|floatformat:1 }}</td>
+            <td>{{ steps.volume }}</td>
             <td>{{ steps.rmsd|floatformat:2 }}</td>
         </tr>
         {% endfor %}
@@ -65,7 +65,7 @@
     </div>
 
     
-    <form action="http://rnasteps.rutgers.edu/rnadimer/download-form" method="get">
+    <form action="http://napoli.rutgers.edu/rnadimer/download-form" method="get">
         <input type="submit" value="Download">
     </form>
 

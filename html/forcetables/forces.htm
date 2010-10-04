@@ -27,36 +27,30 @@
 <div align="center">
     <h1>RNA BASE-PAIR STEP PARAMETERS</h1>
 </div>
-    {% autosort step_list %}
-    {% autopaginate step_list 10 %}
+    {% autosort force_list %}
+    {% autopaginate force_list 6 %}
 
     <table id="newspaper-b" summary="RNA Base-Step Parameters">
         <tr>
-            <th>{% anchor steps.stack_type "Stack Type" %}</th>
-            <th>{% anchor steps.step_id "Step" %}</th>
-            <th>{% anchor steps.count Count %}</th>
-            <th>{% anchor steps.shift Shift %}</th>
-            <th>{% anchor steps.slide Slide %}</th>
-            <th>{% anchor steps.rise Rise %}</th>
-            <th>{% anchor steps.tilt Tilt %}</th>
-            <th>{% anchor steps.roll Roll %}</th>
-            <th>{% anchor steps.twist Twist %}</th>
-            <th>{% anchor steps.volume Volume %}</th>
-            <th>{% anchor steps.rmsd RMSD %}</th>
+            <th>{% anchor forces.parameter "Stack Type" %}</th>
+            <th>{% anchor forces.step_id "Step" %}</th>
+            <th>{% anchor forces.shift Shift %}</th>
+            <th>{% anchor forces.slide Slide %}</th>
+            <th>{% anchor forces.rise Rise %}</th>
+            <th>{% anchor forces.tilt Tilt %}</th>
+            <th>{% anchor forces.roll Roll %}</th>
+            <th>{% anchor forces.twist Twist %}</th>
         </tr>
-        {% for steps in step_list %}
+        {% for forces in force_list %}
         <tr>
-            <td>{{ steps.stack_type }}</td>
-            <td>{{ steps.step_id }}</td>
-            <td> <a href="/media/img/{{steps.step_id}}.png">{{ steps.count }} </a></td>
-            <td>{{ steps.shift|floatformat:2 }}</td>
-            <td>{{ steps.slide|floatformat:2 }}</td>
-            <td>{{ steps.rise|floatformat:2 }}</td>
-            <td>{{ steps.tilt|floatformat:1 }}</td>
-            <td>{{ steps.roll|floatformat:1 }}</td>
-            <td>{{ steps.twist|floatformat:1 }}</td>
-            <td>{{ steps.volume|floatformat:1 }}</td>
-            <td>{{ steps.rmsd|floatformat:2 }}</td>
+            <td>{{ forces.parameter }}</td>
+            <td>{{ forces.step_id }}</td>
+            <td>{{ forces.shift|floatformat:2 }}</td>
+            <td>{{ forces.slide|floatformat:2 }}</td>
+            <td>{{ forces.rise|floatformat:2 }}</td>
+            <td>{{ forces.tilt|floatformat:1 }}</td>
+            <td>{{ forces.roll|floatformat:1 }}</td>
+            <td>{{ forces.twist|floatformat:1 }}</td>
         </tr>
         {% endfor %}
     </table>
