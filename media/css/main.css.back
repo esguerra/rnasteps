@@ -110,7 +110,7 @@ header nav {
 }
 
 header nav li:first-child {
-      list-style:none; 
+      list-style:none;
 }
 
 header nav li { 
