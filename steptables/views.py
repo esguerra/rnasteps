@@ -13,7 +13,7 @@ def index(request):
 
 def force_view(request):
     return render_to_response('forcetables/forces.htm',
-    {'force_list': Forces.objects.order_by('-step_id')},
+    {'force_list': Forces.objects.order_by('step_id')},
     context_instance = RequestContext(request))
 
 def step_view(request):
@@ -34,6 +34,20 @@ def csv_list(request):
 #        writer.writerow([format(sh.step_id, '.2f'), sh.shift, sh.slide, sh.rise, sh.tilt, sh.roll, sh.twist])
         writer.writerow([sh.step_id, sh.shift, sh.slide, sh.rise, sh.tilt, sh.roll, sh.twist])
     return response
+
+
+def csv_list2(request):
+    """ Renders a csv list  """
+    response = HttpResponse(mimetype='text/csv')
+    response['Content-Disposition'] = 'attachment; filename=rnaforces.csv'
+    csv_forces = Forces.objects.all()
+      # Create the CSV writer using the HttpResponse as the "file."
+    writer = csv.writer(response)
+    writer.writerow(['Step','Shift', 'Slide', 'Rise', 'Tilt', 'Roll', 'Twist'])
+    for (ch) in csv_forces:
+        writer.writerow([ch.step_id, ch.shift, ch.slide, ch.rise, ch.tilt, ch.roll, ch.twist])
+    return response
+
 
 #def force_view(request):
 #    return render_to_response('forcetables/constants.htm',

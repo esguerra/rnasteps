@@ -11,7 +11,8 @@ urlpatterns = patterns('rnadimer.steptables.views',
     # Example:
     (r'^$', 'index'),
 #    (r'^search-form/$', views.search_form),
-    (r'^download-form/$', views.csv_list),
+    (r'^download-form1/$', views.csv_list),
+    (r'^download-form2/$', views.csv_list2),
     (r'^steps/', 'step_view'), # Decoupling
     (r'^forces/', 'force_view'), # Decoupling                       
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),

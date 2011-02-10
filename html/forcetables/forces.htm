@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>RNABPS-DB | STEPS</title>
+        <title>RNABPS-DB | FORCE CONSTANTS</title>
         <link rel="stylesheet" type="text/css" media="all" href="/media/css/reset.css" />
         <link rel="stylesheet" type="text/css" media="all" href="/media/css/main.css" />
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
@@ -11,7 +11,7 @@
     <body>
     <header class="group">
         <h1 id="logo">
-            <a href="http://rnasteps.rutgers.edu"><img src="../media/img/logo.png" width="226" height="51" alt="Mauricio Esguerra"/></a>
+            <a href="http://rnasteps.rutgers.edu"><img src="/media/img/logo.png" width="226" height="51" alt="Mauricio Esguerra"/></a>
         </h1>
 
         <nav>
@@ -28,12 +28,12 @@
 {% load pagination_tags %}
 {% load sorting_tags %}
 <div align="center">
-    <h1>RNA BASE-PAIR STEP PARAMETERS</h1>
+    <h1>RNA BASE-PAIR STEP FORCE CONSTANTS</h1>
 </div>
     {% autosort force_list %}
     {% autopaginate force_list 6 %}
 
-    <table id="newspaper-b" summary="RNA Base-Step Parameters">
+    <table id="newspaper-b" summary="RNA Base-Step Force Constants">
         <tr>
             <th>{% anchor forces.parameter "Stack Type" %}</th>
             <th>{% anchor forces.step_id "Step" %}</th>
@@ -62,7 +62,7 @@
     </div>
 
     
-    <form action="http://rnasteps.rutgers.edu/rnadimer/download-form" method="get">
+    <form action="http://rnasteps.rutgers.edu/rnadimer/download-form2" method="get">
         <input type="submit" value="Download">
     </form>
 

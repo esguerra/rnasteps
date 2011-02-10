@@ -81,7 +81,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 ROOT_URLCONF = 'rnadimer.urls'
 
-TEMPLATE_DIRS = ("/home/esguerra/rnadimer/html",
+TEMPLATE_DIRS = ("/home/rnasteps/rnadimer/html",
 )
 
 INSTALLED_APPS = (
