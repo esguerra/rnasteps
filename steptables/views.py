@@ -24,7 +24,8 @@ def step_view(request):
 
 def test_view(request):
     return render_to_response('test_tables/test.htm',
-    {'test_list': Steps.objects.filter(step_id='GG.CC')},
+    {'test_list': Steps.objects.filter(step_id='GG.CC')
+     | Steps.objects.filter(step_id='CG.CG')},
     context_instance = RequestContext(request))
 
 def bpstep_view(request):

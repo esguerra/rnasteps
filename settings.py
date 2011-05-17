@@ -1,5 +1,5 @@
-#DEBUG = True
-DEBUG = False
+DEBUG = True
+#DEBUG = False
 #TEMPLATE_DEBUG = DEBUG
 
 
@@ -83,7 +83,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 ROOT_URLCONF = 'rnadimer.urls'
 
-TEMPLATE_DIRS = ("/home/rnasteps/rnadimer/html",
+TEMPLATE_DIRS = ("/home/esguerra/rnadimer/html",
 )
 
 INSTALLED_APPS = (
