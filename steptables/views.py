@@ -2,6 +2,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from rnadimer.steptables.models import Forces
 from rnadimer.steptables.models import Steps
+from rnadimer.steptables.models import StepIds
 import csv
 from django.http import HttpResponse
 
@@ -20,6 +21,18 @@ def step_view(request):
     return render_to_response('steptables/steps.htm',
     {'step_list': Steps.objects.order_by('-count')},
     context_instance = RequestContext(request))
+
+def test_view(request):
+    return render_to_response('test_tables/test.htm',
+    {'test_list': Steps.objects.filter(step_id='GG.CC')},
+    context_instance = RequestContext(request))
+
+def bpstep_view(request):
+    return render_to_response('bpstep_tables/alldata.htm',
+    {'bpstep_list': StepIds.objects.order_by('ndb_id')},
+    context_instance = RequestContext(request))
+
+
 
 def csv_list(request):
     """ Renders a csv list  """
@@ -53,8 +66,6 @@ def csv_list2(request):
 #    return render_to_response('forcetables/constants.htm',
 #    {'const_list': Forces.objects.order_by('-count')},
 #    context_instance = RequestContext(request))
-
-
 
 
 

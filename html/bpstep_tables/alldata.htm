@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>RNABPS-DB | STEPS</title>
+        <link rel="stylesheet" type="text/css" media="all" href="/media/css/reset.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="/media/css/main.css" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    </head>
+
+    <body>
+    <header class="group">
+        <h1 id="logo">
+            <a href="http://rnasteps.rutgers.edu"><img src="/media/img/logo.png" width="226" height="51" alt="Mauricio Esguerra"/></a>
+        </h1>
+
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/rnadimer/steps">Steps</a></li>
+                <li><a href="/rnadimer/forces">Constants</a></li>
+                <li><a href="/info.htm">Info</a></li>
+                <li><a href="/news.htm">News</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+<!-- Total number of base-pair steps: {{ bpstep_list|length }}-->
+
+<br/><br/>
+
+{% load pagination_tags %}
+{% load sorting_tags %}
+<div align="center">
+    <h1>RNA BASE-PAIR STEPS INFO</h1>
+</div>
+<br/><br/>
+    {% autosort bpstep_list %}
+    {% autopaginate bpstep_list 15 %}
+
+    <table id="newspaper-b" summary="RNA Base-Step Parameters">
+  <tr> 
+     <th colspan="2">Sources</th>
+     <th colspan="4">Bases</th>
+     <th colspan="6">Leontis-Westhof</th>
+  </tr> 
+        <tr>
+            <th>{% anchor step_ids.ndb_id "NDB ID" %}</th>
+            <th>{% anchor step_ids.pdb_id "PDB ID" %}</th>
+            <th>{% anchor step_ids.residue3  "N3" %}</th>
+            <th>{% anchor step_ids.residue1  "N1" %}</th>
+            <th>{% anchor step_ids.residue2  "N2" %}</th>
+            <th>{% anchor step_ids.residue4  "N4" %}</th>
+            <th>{% anchor step_ids.edge3  "E3" %}</th>
+            <th>{% anchor step_ids.edge1  "E1" %}</th>
+            <th>{% anchor step_ids.edge2  "E2" %}</th>
+            <th>{% anchor step_ids.edge4  "E4" %}</th>
+            <th>{% anchor step_ids.gly_orie1  "Gly1" %}</th>
+            <th>{% anchor step_ids.gly_orie2  "Gly2" %}</th>
+
+        </tr>
+        {% for step_ids in bpstep_list %}
+        <tr>
+            <td><a href="http://ndbserver.rutgers.edu/servlet/IDSearch.NDBSearch1?id={{step_ids.ndb_id}}">{{ step_ids.ndb_id }}</a></td>
+            <td><a href="http://www.pdb.org/pdb/explore/explore.do?structureId={{step_ids.pdb_id}}">{{ step_ids.pdb_id }}</a></td>
+            <td>{{ step_ids.residue3 }}</td>
+            <td>{{ step_ids.residue1 }}</td>
+            <td>{{ step_ids.residue2 }}</td>
+            <td>{{ step_ids.residue4 }}</td>
+            <td>{{ step_ids.edge3 }}</td>
+            <td>{{ step_ids.edge1 }}</td>
+            <td>{{ step_ids.edge2 }}</td>
+            <td>{{ step_ids.edge4 }}</td>
+            <td>{{ step_ids.gly_orie1 }}</td>
+            <td>{{ step_ids.gly_orie2 }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div align="center">
+     {% paginate %}
+    </div>
+
+
+
+
+
+
+<br/>
+<br/>
+<div align="center">
+<video width="480" controls autobuffer>
+  <source src="http://rnasteps.rutgers.edu/media/img/intrstrpolAC3G5.ogv"  ty\
+pe='video/ogg; codecs="theora, vorbis"'>
+</video>
+
+<br/>
+<br/>
+As we develop the rnasteps database and website we'll add more functionalities and information.
+<br/>
+For now a simulated RNA chain constructed using the step parameters and force constants served from 
+<br/>
+this django webframework using the Gaussian sampling methodology of Czapla et al. (JMB 2008 382:35 3-370).
+</div>
+<br/>
+<br/>
+
+
+
+
+<!-- FOOTER SECTION -->
+<footer>
+    <hr/>
+    <hr/>
+    <p>
+&#169; 2011 Mauricio Esguerra @ Olson Lab
+    </p>
+</footer>
+
+</body>
+</html>

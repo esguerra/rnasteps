@@ -17,7 +17,7 @@
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="">Steps</a></li>
+                <li><a href="/rnadimer/steps">Steps</a></li>
                 <li><a href="/rnadimer/forces">Constants</a></li>
                 <li><a href="/rnadimer/bpsteps">Info</a></li>
                 <li><a href="/news.htm">News</a></li>
@@ -28,10 +28,10 @@
 {% load pagination_tags %}
 {% load sorting_tags %}
 <div align="center">
-    <h1>RNA BASE-PAIR STEP PARAMETERS</h1>
+    <h1>PURINE-PURINE STEPS</h1>
 </div>
-    {% autosort step_list %}
-    {% autopaginate step_list 10 %}
+    {% autosort test_list %}
+    {% autopaginate test_list 10 %}
 
     <table id="newspaper-b" summary="RNA Base-Step Parameters">
         <tr>
@@ -47,7 +47,7 @@
             <th>{% anchor steps.volume Volume %}</th>
             <th>{% anchor steps.rmsd RMSD %}</th>
         </tr>
-        {% for steps in step_list %}
+        {% for steps in test_list %}
         <tr>
             <td>{{ steps.stack_type }}</td>
             <td><a href="/media/img/{{steps.step_id}}top.png">{{ steps.step_id }}</a></td>
@@ -65,23 +65,17 @@
     </table>
     <div align="center">
      {% paginate %}
-
-
-    
-    <form action="http://rnasteps.rutgers.edu/rnadimer/download-form1" method="get">
-        <input type="submit" value="Download">
-    </form>
     </div>
 
-
-
+    
 <!-- FOOTER SECTION -->
 <footer>
     <hr/>
     <hr/>
     <p>
 &#169; 2011 Mauricio Esguerra @ Olson Lab
-    </p>
+</script>
+</p>
 </footer>
 
 </body>
