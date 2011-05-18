@@ -83,8 +83,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 ROOT_URLCONF = 'rnadimer.urls'
 
-TEMPLATE_DIRS = ("/home/esguerra/rnadimer/html",
-)
+TEMPLATE_DIRS = os.path.join(PROJECT_DIR, 'html')
 
 INSTALLED_APPS = (
     'django.contrib.auth',

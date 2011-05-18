@@ -6,6 +6,10 @@ from rnadimer.steptables import views
 
 admin.autodiscover()
 
+import os.path
+PROJECT_DIR = os.path.dirname(__file__)
+
+
 
 urlpatterns = patterns('rnadimer.steptables.views',
     # Example:
@@ -24,5 +28,5 @@ urlpatterns = patterns('rnadimer.steptables.views',
 if settings.DEBUG:
     urlpatterns += patterns('',
         (r'^media/(?P<path>.*)$', 'django.views.static.serve',
-        {'document_root': '/home/esguerra/rnadimer/media'}),
+        {'document_root': os.path.join(PROJECT_DIR, 'media')}),
     )
