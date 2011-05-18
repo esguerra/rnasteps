@@ -1,10 +1,12 @@
-#DEBUG = True
-DEBUG = False
-#TEMPLATE_DEBUG = DEBUG
+DEBUG = True
+#DEBUG = False
+TEMPLATE_DEBUG = DEBUG
 
 
-import os.path
-PROJECT_DIR = os.path.dirname(__file__)
+import os
+#PROJECT_DIR = os.path.dirname(__file__)
+PROJECT_DIR = os.path.realpath(os.path.dirname(__file__))
+
 
 
 ADMINS = (

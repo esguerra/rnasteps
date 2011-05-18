@@ -1,13 +1,15 @@
+import os
+
 from django.conf.urls.defaults import *
 from django.contrib import admin
-#from django.views.static import serve
+from django.views.static import serve
 from django.conf import settings
 from rnadimer.steptables import views
 
 admin.autodiscover()
 
-import os.path
-PROJECT_DIR = os.path.dirname(__file__)
+#import os.path
+#PROJECT_DIR = os.path.dirname(__file__)
 
 
 
@@ -28,5 +30,6 @@ urlpatterns = patterns('rnadimer.steptables.views',
 if settings.DEBUG:
     urlpatterns += patterns('',
         (r'^media/(?P<path>.*)$', 'django.views.static.serve',
-        {'document_root': os.path.join(PROJECT_DIR, 'media')}),
+        {'document_root': os.path.join(settings.PROJECT_DIR,  'media')}),
+#        {'document_root': '/users/esguerra/rnadimer/media/'}),         
     )
