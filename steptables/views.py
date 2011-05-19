@@ -12,6 +12,9 @@ from django.http import HttpResponse
 def index(request):
     return render_to_response('index.htm')
 
+def news(request):
+    return render_to_response('news/news.htm')
+
 def force_view(request):
     return render_to_response('forcetables/forces.htm',
     {'force_list': Forces.objects.order_by('step_id')},
