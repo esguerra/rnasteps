@@ -19,7 +19,7 @@
                 <li><a href="/">Home</a></li>
                 <li><a href="/rnadimer/steps">Steps</a></li>
                 <li><a href="/rnadimer/forces">Constants</a></li>
-                <li><a href="/info.htm">Info</a></li>
+                <li><a href="/rnadimer/bpsteps">Info</a></li>
                 <li><a href="/rnadimer/news">News</a></li>
             </ul>
         </nav>
@@ -29,11 +29,23 @@
 <!-- Total number of base-pair steps: {{ bpstep_list|length }}-->
 
 <br/><br/>
+<div align="center">
+The base-pair steps in the  RNASTEPS database are defined in the order
+depicted in the following image:
+</div>
+<br/><br/>
+<div align="center">
+<img src="/media/img/bpstep.png" alt="Base-Pair Step" width="480" />
+</div>
+
+<br/><br/>
 
 {% load pagination_tags %}
 {% load sorting_tags %}
 <div align="center">
-    <h1>RNA BASE-PAIR STEPS INFO</h1>
+In the next table the full data of base-pair steps present
+in helical regions of available X-ray crystallographic data from the
+Protein Data Bank is provided.
 </div>
 <br/><br/>
     {% autosort bpstep_list %}
