@@ -1,5 +1,11 @@
 import os, sys
-sys.path.append('/home/rnasteps')
+
+#path = '/home/rnasteps'
+path = '/users/esguerra'
+
+if path not in sys.path:
+   sys.path.append(path)
+
 os.environ['DJANGO_SETTINGS_MODULE'] = 'rnadimer.settings'
 
 import django.core.handlers.wsgi

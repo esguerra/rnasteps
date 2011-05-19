@@ -31,5 +31,4 @@ if settings.DEBUG:
     urlpatterns += patterns('',
         (r'^media/(?P<path>.*)$', 'django.views.static.serve',
         {'document_root': os.path.join(settings.PROJECT_DIR,  'media')}),
-#        {'document_root': '/users/esguerra/rnadimer/media/'}),         
     )
