@@ -30,11 +30,16 @@
 
 <br/><br/>
 <div align="center">
-The base-pair steps in the  RNASTEPS database are defined in the order
-depicted in the following image:
-</div>
-<br/><br/>
-<div align="center">
+<ctb>
+In the following image an RNA base-pair step is depicted using
+the Leontis-Westhof annotation convention for base-pairs.
+A circle  denotes a  Watson-Crick edge, a  square denotes  a Hoogsteen
+edge, and a triangle denotes a Sugar edge.
+Open  polygons  mean  that  the  glycosidic bonds  are  in  the  trans
+orientation and filled polygons stand for the cis orientation.
+</ctb>
+<br/>
+<br/>
 <img src="/media/img/bpstep.png" alt="Base-Pair Step" width="480" />
 </div>
 
@@ -43,9 +48,10 @@ depicted in the following image:
 {% load pagination_tags %}
 {% load sorting_tags %}
 <div align="center">
-In the next table the full data of base-pair steps present
+<ctb>In the next table the full data of base-pair steps present
 in helical regions of available X-ray crystallographic data from the
 Protein Data Bank is provided.
+</ctb>
 </div>
 <br/><br/>
     {% autosort bpstep_list %}
@@ -92,15 +98,15 @@ Protein Data Bank is provided.
     <div align="center">
      {% paginate %}
     </div>
-
-
-
-
-
-
-<br/>
-<br/>
+<br/><br/>
 <div align="center">
+<ctb>
+As we develop the rnasteps database and website we'll add more functionalities and information.
+For now  a simulated RNA  chain constructed using the  step parameters
+and force constants served from
+this django webframework using the Gaussian sampling methodology of Czapla et al. (JMB 2008 382:35 3-370).
+</ctb>
+<br/><br/>
 <video width="480" controls autobuffer>
   <source src="http://rnasteps.rutgers.edu/media/img/intrstrpolAC3G5.ogv"  ty\
 pe='video/ogg; codecs="theora, vorbis"'>
@@ -108,12 +114,9 @@ pe='video/ogg; codecs="theora, vorbis"'>
 
 <br/>
 <br/>
-As we develop the rnasteps database and website we'll add more functionalities and information.
-<br/>
-For now a simulated RNA chain constructed using the step parameters and force constants served from 
-<br/>
-this django webframework using the Gaussian sampling methodology of Czapla et al. (JMB 2008 382:35 3-370).
-</div>
+
+
+
 <br/>
 <br/>
 

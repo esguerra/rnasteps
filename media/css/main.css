@@ -24,7 +24,7 @@ h1 {
     font-weight:normal; 
     font-size:1.8em;
 }
-	
+
 h2 {
    font-size:1.2em;
 }
@@ -151,6 +151,19 @@ pre{
         color:black;
         margin: 4px 20px 4px 20px;
 }
+
+/* Centered text box */
+ctb{
+    clear: both; 
+    display: block;
+/*    float: center; */
+    text-align: left;
+    margin: 4px 20px 4px 20px;    
+    padding: 10px 30px 10px 0px;
+    width: 610px;
+}
+
+
 
 /* Images */
 img {
