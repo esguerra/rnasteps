@@ -16,9 +16,10 @@ admin.autodiscover()
 urlpatterns = patterns('rnadimer.steptables.views',
     # Example:
     (r'^$', 'index'),
-#    (r'^search-form/$', views.search_form),
     (r'^download-form1/$', views.csv_list),
     (r'^download-form2/$', views.csv_list2),
+    (r'^search-form/$', 'search_form'),
+    (r'^search/', 'search'),                       
     (r'^news/', 'news'),           # Decoupling
     (r'^steps/', 'step_view'),     # Decoupling
     (r'^tests/', 'test_view'),     # Decoupling

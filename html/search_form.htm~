@@ -1,0 +1,14 @@
+<html>
+  <head>
+        <title>Search</title>
+	</head>
+  <body>
+    {% ir error %}
+    <p style="color: blue;"> - Please Input a Letter for a Base. </p>
+    {% endif %}
+        <form action="/search/" method="get">
+	  <input type="text" name="q">
+	  <input type="submit" value="Search">
+	</form>
+  </body>
+</html>

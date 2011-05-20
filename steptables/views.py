@@ -1,10 +1,11 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from django.http import HttpResponse
 from rnadimer.steptables.models import Forces
 from rnadimer.steptables.models import Steps
 from rnadimer.steptables.models import StepIds
+
 import csv
-from django.http import HttpResponse
 
 
 #from rnadimer.steptables.models import Forces
@@ -35,8 +36,6 @@ def bpstep_view(request):
     return render_to_response('bpstep_tables/alldata.htm',
     {'bpstep_list': StepIds.objects.order_by('ndb_id')},
     context_instance = RequestContext(request))
-
-
 
 def csv_list(request):
     """ Renders a csv list  """
@@ -78,8 +77,17 @@ def csv_list2(request):
 #    return response
 
 
-#def search_form(request):
-#    return render_to_response('search_form.html')
+def search_form(request):
+    return render_to_response('search_form.htm')
+
+def search(request):
+    if 'q' in request.GET and request.GET['q']:
+        q = request.GET['q']
+        stepids = StepIds.objects.filter(residue3__icontains=q)
+        return render_to_response('search_results.htm',
+                                  {'stepids': stepids, 'query': q})
+    else:
+        return render_to_response('search_form.htm', {'error': True})
 
 #def force_view(request):
 #    return render_to_response('steptables/forces.html',
