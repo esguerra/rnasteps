@@ -18,9 +18,9 @@ urlpatterns = patterns('rnadimer.steptables.views',
     (r'^$', 'index'),
     (r'^download-form1/$', views.csv_list),
     (r'^download-form2/$', views.csv_list2),
-    (r'^search-form/$', 'search_form'),
+    (r'^search/search-form/$', 'search_form'),
     (r'^search/', 'search'),                       
-    (r'^news/', 'news'),           # Decoupling
+    (r'^info/', 'info'),           # Decoupling
     (r'^steps/', 'step_view'),     # Decoupling
     (r'^tests/', 'test_view'),     # Decoupling
     (r'^forces/', 'force_view'),   # Decoupling

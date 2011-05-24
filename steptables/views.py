@@ -13,8 +13,8 @@ import csv
 def index(request):
     return render_to_response('index.htm')
 
-def news(request):
-    return render_to_response('news/news.htm')
+def info(request):
+    return render_to_response('info/info.htm')
 
 def force_view(request):
     return render_to_response('forcetables/forces.htm',
@@ -78,18 +78,23 @@ def csv_list2(request):
 
 
 def search_form(request):
-    return render_to_response('search_form.htm')
+    return render_to_response('search/search_form.htm')
 
 def search(request):
     if 'q' in request.GET and request.GET['q']:
         q = request.GET['q']
-        stepids = StepIds.objects.filter(residue3__icontains=q)
-        return render_to_response('search_results.htm',
-                                  {'stepids': stepids, 'query': q})
+        return render_to_response('search/search_results.htm',
+    {'stepid_list': StepIds.objects.filter(ndb_id__icontains=q)
+     | StepIds.objects.filter(pdb_id__icontains=q), 'query': q}, 
+    context_instance = RequestContext(request))
+
     else:
-        return render_to_response('search_form.htm', {'error': True})
+        return render_to_response('search/search_form.htm', {'error': True})
 
 #def force_view(request):
 #    return render_to_response('steptables/forces.html',
 #    {'forces_list': Forces.objects.order_by('-stype')},
 #    context_instance = RequestContext(request))
+
+
+    
