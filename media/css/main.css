@@ -154,7 +154,8 @@ pre{
 
 /* Centered text box */
 ctb{
-    clear: both; 
+    clear: both;
+    border:2px solid #FFF;   
     display: block;
 /*    float: center; */
     text-align: left;
@@ -262,3 +263,9 @@ PAGINATION TAGS
 	clear:both;
 	visibility:hidden;
 }
+
+
+/*-------------
+	BEAUTIFY SEARCH BOX
+---------------*/
+

@@ -30,18 +30,21 @@
 <br />
 <br />
 
-
-
+<ctb>
     {% if error %}
-    <p style="color: white;">  - Please input the ndb_id  or pdb_id of
-    the RNA structure you're looking for (e.g. tr0001 or 1ehz): </p>
+	<h2>Search by NDB (PDB) identifier or keywords</h2> 
+	<br/>
     {% endif %}
         <form action="/search/" method="get">
 	  <input type="text" name="q">
 	  <input type="submit" value="Search">
+	  <br/><br/>
+	  Example: "<a href="/search/?q=tr0001">tr0001</a>"
 	</form>
+</ctb>
 
 
+	
 <br />
 <br />
 <br />
