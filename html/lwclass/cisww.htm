@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<title>RNA BASE-PAIR-STEPS @ Rutgers</title>
+<link rel="stylesheet" type="text/css" media="all" href="/media/css/reset.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="/media/css/main.css"  />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+</head>
+
+
+<body>
+<header class="group">
+<h1 id="logo">
+<a href="/"><img src="/media/img/logo.png" width="226" height="50" alt="RNA BPSDB"></a>
+</h1>
+
+
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/steps">Steps</a></li>
+<li><a href="/forces">Constants</a></li>
+<li><a href="/search">Search</a></li>
+<li><a href="/info">Info</a></li> 
+</ul>
+</nav>
+</header>
+
+
+<p>Found {{ cisww_list|length }} base-pair steps{{ stepid_list|pluralize }}.</p>
+
+
+{% load pagination_tags %}
+{% load sorting_tags %}
+<!--<div align="center">
+    <h1>Leontis-Westhof Classification of Base-Pair Steps</h1>
+</div> -->
+
+    {% autosort cisww_list %}
+    {% autopaginate cisww_list 10 %}
+
+    <table id="newspaper-b" summary="Leontis-Westhof Classification of
+    Base-Pair Steps.">
+  <tr> 
+     <th colspan="2">Sources</th>
+     <th colspan="4">Bases</th>
+     <th colspan="6">Leontis-Westhof</th>
+  </tr> 
+        <tr>
+            <th>{% anchor step_ids.ndb_id "NDB ID" %}</th>
+            <th>{% anchor step_ids.pdb_id "PDB ID" %}</th>
+            <th>{% anchor step_ids.residue3  "N3" %}</th>
+            <th>{% anchor step_ids.residue1  "N1" %}</th>
+            <th>{% anchor step_ids.residue2  "N2" %}</th>
+            <th>{% anchor step_ids.residue4  "N4" %}</th>
+            <th>{% anchor step_ids.edge3  "E3" %}</th>
+            <th>{% anchor step_ids.edge1  "E1" %}</th>
+            <th>{% anchor step_ids.edge2  "E2" %}</th>
+            <th>{% anchor step_ids.edge4  "E4" %}</th>
+            <th>{% anchor step_ids.gly_orie1  "Gly1" %}</th>
+            <th>{% anchor step_ids.gly_orie2  "Gly2" %}</th>
+
+        </tr>
+        {% for step_ids in cisww_list %}
+        <tr>
+            <td><a href="http://ndbserver.rutgers.edu/servlet/IDSearch.NDBSearch1?id={{step_ids.ndb_id}}">{{ step_ids.ndb_id }}</a></td>
+            <td><a href="http://www.pdb.org/pdb/explore/explore.do?structureId={{step_ids.pdb_id}}">{{ step_ids.pdb_id }}</a></td>
+            <td>{{ step_ids.residue3 }}</td>
+            <td>{{ step_ids.residue1 }}</td>
+            <td>{{ step_ids.residue2 }}</td>
+            <td>{{ step_ids.residue4 }}</td>
+            <td>{{ step_ids.edge3 }}</td>
+            <td>{{ step_ids.edge1 }}</td>
+            <td>{{ step_ids.edge2 }}</td>
+            <td>{{ step_ids.edge4 }}</td>
+            <td>{{ step_ids.gly_orie1 }}</td>
+            <td>{{ step_ids.gly_orie2 }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+   <div align="center">
+     {% paginate %}
+   </div>
+
+
+
+<br/>
+
+<br/>
+<br/>
+<br/>
+
+
+
+
+<!-- FOOTER SECTION -->
+<footer>
+<hr/>
+<hr/>
+<p>
+&#169; 2011 Mauricio Esguerra @ Olson Lab
+</p>
+
+</footer>
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ?
+"https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost +
+"google-analytics.com/ga.js'
+type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-2306840-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>

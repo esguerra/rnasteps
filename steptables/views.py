@@ -8,13 +8,8 @@ from rnadimer.steptables.models import StepIds
 import csv
 
 
-#from rnadimer.steptables.models import Forces
-
 def index(request):
     return render_to_response('index.htm')
-
-def info(request):
-    return render_to_response('info/info.htm')
 
 def force_view(request):
     return render_to_response('forcetables/forces.htm',
@@ -32,8 +27,23 @@ def test_view(request):
      | Steps.objects.filter(step_id='CG.CG')},
     context_instance = RequestContext(request))
 
-def bpstep_view(request):
-    return render_to_response('bpstep_tables/alldata.htm',
+def cisww_view(request):
+    return render_to_response('lwclass/cisww.htm',
+    {'cisww_list': StepIds.objects.filter(edge3='W')
+     & StepIds.objects.filter(edge1='W')
+     & StepIds.objects.filter(edge2='W')
+     & StepIds.objects.filter(edge4='W')},
+    context_instance = RequestContext(request))
+
+def transhs_view(request):
+    return render_to_response('lwclass/transhs.htm',
+    {'transhs_list': StepIds.objects.filter(edge3='H')
+     & StepIds.objects.filter(edge4='S')},
+    context_instance = RequestContext(request))
+
+
+def info(request):
+    return render_to_response('info/info.htm',
     {'bpstep_list': StepIds.objects.order_by('ndb_id')},
     context_instance = RequestContext(request))
 
@@ -65,17 +75,6 @@ def csv_list2(request):
     return response
 
 
-#def force_view(request):
-#    return render_to_response('forcetables/constants.htm',
-#    {'const_list': Forces.objects.order_by('-count')},
-#    context_instance = RequestContext(request))
-
-
-
-#    writer = csv.writer(response, dialect=csv.excel)
-#    writer.writerow([Steps.objects('shift'), Steps.objects('slide')])
-#    return response
-
 
 def search_form(request):
     return render_to_response('search/search_form.htm')
@@ -91,10 +90,4 @@ def search(request):
     else:
         return render_to_response('search/search_form.htm', {'error': True})
 
-#def force_view(request):
-#    return render_to_response('steptables/forces.html',
-#    {'forces_list': Forces.objects.order_by('-stype')},
-#    context_instance = RequestContext(request))
 
-
-    
