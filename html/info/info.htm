@@ -5,7 +5,7 @@
 <meta charset="utf-8" />
 <title>RNA BASE-PAIR-STEPS @ Rutgers</title>
 <link rel="stylesheet" type="text/css" media="all" href="/media/css/reset.css"/>
-<link rel="stylesheet" type="text/css" media="all" href="/media/css/main.css"  />
+<link rel="stylesheet" type="text/css" media="all" href="/media/css/info.css"  />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 </head>
 
@@ -28,53 +28,73 @@
 </nav>
 </header>
 
-
-<div>
-<a href="#about">About</a> |
-<a href="#news">News</a> |
-<a href="#credits">Credits</a> |
-<a href="#references">References</a>
-</div>
 <hr/>
 
-<h2><span id="about">About</span></h2> 
 
-<div align="center">
-<ctb>
-In the following image an RNA base-pair step is depicted using
-the Leontis-Westhof annotation convention for base-pairs.
-A circle  denotes a  Watson-Crick edge, a  square denotes  a Hoogsteen
-edge, and a triangle denotes a Sugar edge.
+<aside>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#news">News</a></li>
+<li><a href="#credits">Credits</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+</aside>
+
+
+
+
+<article>
+<section>
+<h2><span id="about">About</span></h2> 
+<br/>
+<p>
+In the RNA base-pair steps database you will find all steps found in double-stranded 
+helical runs of RNA formed by three consective base-pairs or more. The data has been 
+taken from the Protein Data Bank (PDB) for X-ray determined structures whose resolution 
+is of 3.5 Angstroms or better.
+</p>
+<p>
+To better illustrate the order of a steps in our database in the following image an 
+RNA base-pair step is depicted using the Leontis-Westhof annotation convention for 
+nucleic acid base-pairs.
+A circle  denotes a  Watson-Crick edge, a  square denotes  a Hoogsteen edge, and a 
+triangle denotes a Sugar edge.
 Open  polygons  mean  that  the  glycosidic bonds  are  in  the  trans
 orientation and if there were filled polygons they would mean the cis orientation.
-</ctb>
-<br/>
-<br/>
-<img src="/media/img/bpstep.png" alt="Base-Pair Step" width="280" />
+</p>
 
-<br/><br/>
+<br/>
+<div align=center>
+<img src="/media/img/bpstep.png" alt="Base-Pair Step" width="280" />
+</div>
+
+
 
 {% load pagination_tags %}
 {% load sorting_tags %}
 
-<ctb>In the next table the full data of base-pair steps present
+<br/>
+<p>
+In the next table the full data of base-pair steps present
 in helical regions of available X-ray crystallographic data from the
 Protein Data Bank is provided.
-</ctb>
+</p>
 
 <br/><br/>
     {% autosort bpstep_list %}
     {% autopaginate bpstep_list 15 %}
 
+<div align=center>
     <table id="newspaper-b" summary="RNA Base-Step Parameters">
   <tr> 
-     <th colspan="2">Sources</th>
+     <th colspan="3">Sources</th>
      <th colspan="4">Bases</th>
      <th colspan="6">Leontis-Westhof</th>
   </tr> 
         <tr>
             <th>{% anchor step_ids.ndb_id "NDB ID" %}</th>
             <th>{% anchor step_ids.pdb_id "PDB ID" %}</th>
+            <th>{% anchor step_ids.step_id "Step ID" %}</th>
             <th>{% anchor step_ids.residue3  "N3" %}</th>
             <th>{% anchor step_ids.residue1  "N1" %}</th>
             <th>{% anchor step_ids.residue2  "N2" %}</th>
@@ -91,6 +111,7 @@ Protein Data Bank is provided.
         <tr>
             <td><a href="http://ndbserver.rutgers.edu/servlet/IDSearch.NDBSearch1?id={{step_ids.ndb_id}}">{{ step_ids.ndb_id }}</a></td>
             <td><a href="http://www.pdb.org/pdb/explore/explore.do?structureId={{step_ids.pdb_id}}">{{ step_ids.pdb_id }}</a></td>
+	    <td>{{ step_ids.step_id  }}</td>
             <td>{{ step_ids.residue3 }}</td>
             <td>{{ step_ids.residue1 }}</td>
             <td>{{ step_ids.residue2 }}</td>
@@ -104,29 +125,33 @@ Protein Data Bank is provided.
         </tr>
         {% endfor %}
     </table>
-
      {% paginate %}
+</div>
 
 <br/><br/>
 
-<ctb>
+<p>
 As we develop the rnasteps database and website we'll add more functionalities and information.
 For now  a simulated RNA  chain constructed using the  step parameters
 and force constants served from
 this django webframework using the Gaussian sampling methodology of Czapla et al. (JMB 2008 382:35 3-370).
-</ctb>
+</p>
 <br/><br/>
+<div align=center>
 <video width="480" controls autobuffer>
   <source src="http://rnasteps.rutgers.edu/media/img/intrstrpolAC3G5.ogv"  ty\
 pe='video/ogg; codecs="theora, vorbis"'>
 </video>
 </div>
 
-
-
 <br/>
 <hr/>
 
+  </section>
+
+
+
+<section>
 <h2><span id="news">News</span></h2> 
 <br/>
 Thursday - February 24 2011
@@ -138,7 +163,7 @@ the website whose e-mail address is at the bottom of all pages.
 </pre>
 
 <br/>
-<hr/>
+
 Wednesday - May 11 2011
 <pre>
 Searching by prefered groups of data example.
@@ -149,7 +174,7 @@ Leontis-Westhof patterns and PDB and NDB id's.
 </pre>
 
 <br/>
-<hr/>
+
 Tuesday - May 17 2011
 <pre>
 Configuration and update of the full data for the 91 unique base-pair steps formed
@@ -161,7 +186,7 @@ up the django web framework which hosts this database at: <a href="/media/doc/dj
 </pre>
 
 <br/>
-<hr/>
+
 Tuesday - May 24 2011
 <pre>
 A new search box has been added and the organization of the site is
@@ -169,10 +194,21 @@ being updated.
 </pre>
 
 <br/>
+
+Wednesday - May 25 2011
+<pre>
+Improved html5 and css3 format for info page (info.css) complying with the new aside, article, and section objects.
+</pre>
+
+
+
+<br/>
 <hr/>
+</section>
+<section>
 <h2><span id="credits">Credits</span></h2>
 <br/>
-- rnasteps has been developed as a django web-framework by Mauricio Esguerra
+- rnasteps has been developed as a django web-framework by Mauricio Esguerra.
 <br/>
 - The relational database that does all the magic of integrating 3DNA,
 rnaview,  and the  helical  region recognition  algorithms  is due  to
@@ -186,14 +222,38 @@ actively developed on a voluntary basis by Xiang-Yun Lu.
 
 <br/>
 <hr/>
+</section>
+
+<section>
 <h2><span id="references">References</span></h2> 
 <br/>
-
-
-
+<ul>
+<li>
+Olson W.K., Esguerra M., Xin Y., Lu X.J., (2009) New information content in RNA base pairing deduced from quantitative analysis of high-resolution structures., Methods, 47, 177-186.
+</li>
+<br/>
+<li>
+Xin Y, Olson W.K. (2009) BPS: a database of RNA base-pair structures., Nucleic Acids Research, 37, D83-D88.
+</li>
+<br/>
+<li>
+Lu X-J. and Olson W.K. (2003) 3DNA: a software package for the analysis, rebuilding and visualization of three-dimensional nucleic acid structures, Nucleic Acids Research, 31(17), 5108-5121.
+</li>
+<br/>
+<li>
+Lu X-J. and Olson W.K. (2008) 3DNA: a versatile, integrated software system for the analysis, rebuilding and visualization of three dimensional nucleic-acid structures, Nature Protocols, 3(7) 1213-1227.
+</li>
+</ul>
+</section>
 <br/>
 <br/>
 <br/>
+</article>
+
+
+
+
+
 
 
 
