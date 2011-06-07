@@ -22,8 +22,9 @@ urlpatterns = patterns('rnadimer.steptables.views',
     (r'^search/', 'search'),                       
     (r'^steps/', 'step_view'),     # Decoupling
     (r'^tests/', 'test_view'),     # Decoupling
-    (r'^lwclass/cisww-view/$', 'cisww_view'),     # Decoupling
+    (r'^lwclass/cisww-view/$', 'cisww_view'),         # Decoupling
     (r'^lwclass/transhs-view/$', 'transhs_view'),     # Decoupling
+    (r'^lwclass/transhw-view/$', 'transhw_view'),     # Decoupling                       
     (r'^forces/', 'force_view'),   # Decoupling
     (r'^info/', 'info'),           # Decoupling                       
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),

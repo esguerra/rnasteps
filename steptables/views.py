@@ -29,16 +29,19 @@ def test_view(request):
 
 def cisww_view(request):
     return render_to_response('lwclass/cisww.htm',
-    {'cisww_list': StepIds.objects.filter(edge3='W')
-     & StepIds.objects.filter(edge1='W')
-     & StepIds.objects.filter(edge2='W')
-     & StepIds.objects.filter(edge4='W')},
+    {'cisww_list': StepIds.objects.filter(gly_orie2='cis')},
     context_instance = RequestContext(request))
 
 def transhs_view(request):
     return render_to_response('lwclass/transhs.htm',
     {'transhs_list': StepIds.objects.filter(edge3='H')
-     & StepIds.objects.filter(edge4='S')},
+     & StepIds.objects.filter(edge4='S') },
+    context_instance = RequestContext(request))
+
+def transhw_view(request):
+    return render_to_response('lwclass/transhw.htm',
+    {'transhw_list': StepIds.objects.filter(edge3='H')
+     & StepIds.objects.filter(edge4='W')},
     context_instance = RequestContext(request))
 
 
