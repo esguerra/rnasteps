@@ -48,12 +48,26 @@
 <h2><span id="about">About</span></h2> 
 <br/>
 <p>
-In the RNA base-pair steps database you will find all steps found in double-stranded 
-helical runs of RNA formed by three consective base-pairs or more. The data has been 
-taken from the Protein Data Bank (PDB) for X-ray determined structures whose resolution 
-is of 3.5 Angstroms or better.
-</p>
+In the RNA base-pair steps database (RNASTEPS) you will find all steps found in
+"so-called" intact helical regions of RNA. These intact helical regions come
+about due to the capability of the 3DNA software package for distinguishing
+both continuous and quasi-continuous helical regions of nucleic acids. What
+is meant by continuous is that base-pairs stack in top of each other and
+connect through an intact sugar-phosphate backbone, whereas in the
+quasi-continuous case you will have stacked base-pairs whose sugar-phosphate
+backbone will be broken at some point. One typical example of this situation is
+the coaxial stacking of the anticodon and D stems of tRNA, which are identified
+by 3DNA as a quasicontinuous helix. To better illustrate intact helical regions
+of RNA they are shown in the following figure and denoted by H, along with other
+possible helical contexts which are not included currently in RNASTEPS.<p>
+<br/>
+<div align=center>
+<img src="/media/img/helcontext.png" alt="Helical Regions in RNA" width="480" />
+</div>
+<br/>
 <p>
+The data has been taken from the Protein Data Bank (PDB) for X-ray determined
+structures whose resolution is of 3.5 Angstroms or better.
 To better illustrate the order of a steps in our database in the following image an 
 RNA base-pair step is depicted using the Leontis-Westhof annotation convention for 
 nucleic acid base-pairs.
@@ -67,7 +81,6 @@ orientation and if there were filled polygons they would mean the cis orientatio
 <div align=center>
 <img src="/media/img/bpstep.png" alt="Base-Pair Step" width="280" />
 </div>
-
 
 
 {% load pagination_tags %}
