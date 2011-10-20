@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>RNABPS-DB | DATA</title>
+        <link rel="stylesheet" type="text/css" media="all" href="/media/css/reset.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="/media/css/main.css" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    </head>
+
+    <body>
+    <header class="group">
+        <h1 id="logo">
+            <a href="/"><img src="/media/img/logo.png" width="226" height="51" alt="Mauricio Esguerra"/></a>
+        </h1>
+
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/data">Data</a></li>
+                <li><a href="/search">Search</a></li>
+                <li><a href="/info">Info</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+<br />
+<br />
+
+
+<ctb>
+
+<script type="text/javascript">
+function OnSubmitForm()
+{
+  if(document.myform.operation[0].checked == true)
+  {
+    document.myform.action ="/steps";
+  }
+  else
+  if(document.myform.operation[1].checked == true)
+  {
+    document.myform.action ="/forces";
+  }
+  return true;
+}
+</script>
+<form name="myform" onsubmit="return OnSubmitForm();">
+   <input type="radio" name="operation" checked>Base-Pair Step Parameters
+   <br/>
+   <input type="radio" name="operation" >Force Constants
+   <p>
+   <input type="submit" value="GO">
+   </p>
+</form>
+</ctb
+
+
+</ctb>
+<br/><br/>        
+        
+
+<!-- FOOTER SECTION -->
+<footer>
+    <hr/>
+    <hr/>
+    <p>
+&#169; 2011 Mauricio Esguerra @ Olson Lab
+    </p>
+</footer>
+
+</body>
+</html>

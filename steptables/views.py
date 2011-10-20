@@ -11,6 +11,9 @@ import csv
 def index(request):
     return render_to_response('index.htm')
 
+def data(request):
+    return render_to_response('data/data.htm')
+
 def force_view(request):
     return render_to_response('forcetables/forces.htm',
     {'force_list': Forces.objects.order_by('step_id')},
@@ -44,12 +47,14 @@ def transhw_view(request):
      & StepIds.objects.filter(edge4='W')},
     context_instance = RequestContext(request))
 
-
 def info(request):
     return render_to_response('info/info.htm',
     {'bpstep_list': StepIds.objects.order_by('ndb_id')},
     context_instance = RequestContext(request))
 
+def stats(request):
+    return render_to_response('stats/stats.htm')
+    
 def csv_list(request):
     """ Renders a csv list  """
     response = HttpResponse(mimetype='text/csv')
@@ -76,8 +81,6 @@ def csv_list2(request):
     for (ch) in csv_forces:
         writer.writerow([ch.step_id, ch.shift, ch.slide, ch.rise, ch.tilt, ch.roll, ch.twist])
     return response
-
-
 
 def search_form(request):
     return render_to_response('search/search_form.htm')
