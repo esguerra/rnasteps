@@ -5,7 +5,6 @@ from rnadimer.steptables.models import Forces
 from rnadimer.steptables.models import Steps
 from rnadimer.steptables.models import StepIds
 
-import csv
 
 
 def index(request):
@@ -13,6 +12,9 @@ def index(request):
 
 def data(request):
     return render_to_response('data/data.htm')
+
+def stats(request):
+    return render_to_response('stats/stats.htm')
 
 def force_view(request):
     return render_to_response('forcetables/forces.htm',
@@ -52,9 +54,6 @@ def info(request):
     {'bpstep_list': StepIds.objects.order_by('ndb_id')},
     context_instance = RequestContext(request))
 
-def stats(request):
-    return render_to_response('stats/stats.htm')
-    
 def csv_list(request):
     """ Renders a csv list  """
     response = HttpResponse(mimetype='text/csv')
@@ -96,4 +95,129 @@ def search(request):
     else:
         return render_to_response('search/search_form.htm', {'error': True})
 
+#def chart(request):
+#    import os
+#    os.environ['HOME']='/users/esguerra/rnadimer/media/tmp'
+#    import random
+#    import datetime    
+#    from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+#    from matplotlib.figure import Figure
+#    from matplotlib.dates import DateFormatter
+#    
+#    fig=Figure()
+#    ax=fig.add_subplot(111)
+#    x=[]
+#    y=[]
+#    now=datetime.datetime.now()
+#    delta=datetime.timedelta(days=1)
+#    for i in range(10):
+#        x.append(now)
+#        now+=delta
+#        y.append(random.randint(0, 1000))
+#    ax.plot_date(x, y, '-')
+#    ax.xaxis.set_major_formatter(DateFormatter('%Y-%m-%d'))
+#    fig.autofmt_xdate()
+#    canvas=FigureCanvas(fig)
+#    #response=django.http.HttpResponse(content_type='image/png')
+#    response=HttpResponse(content_type='image/png')
+#    canvas.print_png(response)
+#    return response
 
+
+
+def plot(request):
+    import os
+#    os.environ['HOME']='/users/esguerra/rnadimer/media/tmp'
+    os.environ['HOME']='/home/rnasteps/rnadimer/media/tmp'
+    from numpy import *
+    import csv    
+    from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+    from matplotlib.figure import Figure
+    
+#    rna = open('/users/esguerra/rnadimer/media/tmp/rnaonly.csv', 'r');
+#    dna = open('/users/esguerra/rnadimer/media/tmp/dnaonly.csv', 'r');
+#    protein = open('/users/esguerra/rnadimer/media/tmp/proteins.csv','r');
+
+    rna = open('/home/rnasteps/rnadimer/media/tmp/rnaonly.csv', 'r');
+    dna = open('/home/rnasteps/rnadimer/media/tmp/dnaonly.csv', 'r');
+    protein = open('/home/rnasteps/rnadimer/media/tmp/proteins.csv','r');
+
+
+
+    readrna = csv.reader(rna)        
+    rnadata = []
+    for row in readrna:
+        rnadata.append(row)
+    
+    rna_arr = array(rnadata)
+    
+    readdna = csv.reader(dna)        
+    dnadata = []
+    for row in readdna:
+        dnadata.append(row)
+    
+    dna_arr = array(dnadata)
+
+    readprotein = csv.reader(protein)        
+    proteindata = []
+    for row in readprotein:
+        proteindata.append(row)
+    
+    protein_arr = array(proteindata)
+            
+    
+    fig=Figure()
+    ax=fig.add_subplot(111)
+    year = rna_arr[1:,0]
+    yearly_rna = rna_arr[1:,1]
+    yearly_dna = dna_arr[1:,1]
+    yearly_protein = protein_arr[1:,1]    
+#    yearlyfit = polyfit(year, yearly, 1)
+    ax.set_yscale('log')
+    ax.plot(year, yearly_rna,'o', color='red')
+    leg1=ax.plot(year, yearly_rna,'b-', color='red')
+    ax.plot(year, yearly_dna,'o', color='blue')
+    leg2=ax.plot(year, yearly_dna,'b-', color='blue')
+    ax.plot(year, yearly_protein,'o', color='green')
+    leg3=ax.plot(year, yearly_protein,'b-', color='green')
+    ax.grid(True,which="both")
+    ax.set_xlim(1995, 2011)
+    ax.set_rasterized(True)
+    ax.set_xlabel('Year')
+    ax.set_ylabel('Number of Yearly Added Structures')    
+    ax.set_title('Structures in PDB per Year')
+    ax.legend((leg1,leg2,leg3),('RNA','DNA','Protein'), loc=4)
+    
+    canvas = FigureCanvas(fig)
+    response=HttpResponse(content_type='image/png')
+    canvas.print_png(response)
+    return response
+
+
+#def matplot(request):
+#    import os
+#    os.environ['HOME']='/users/esguerra/rnadimer/media/tmp'
+#    
+#    inp = open("/users/esguerra/rnadimer/media/tmp/sixbysix.dat");
+#
+#    #Arrange the data in an array
+#    dist_arr = []
+#    for line in inp.readlines():
+#        dist_arr.append([])
+#        for i in line.split():
+#            dist_arr[-1].append(float(i))
+#
+#   inp.close()         
+#   M = array(dist_arr)
+#
+#   plt.matshow(M)
+#   plt.title('Distance Matrix of Ca to Ca distances.')
+#   plt.xlabel('Residue Number Strand I')
+#   plt.ylabel('Residue Number Strand II')
+#   
+#   canvas = FigureCanvas(plt.figure(1))
+#   response=HttpResponse(content_type='image/png')
+#   canvas.print_png(response)
+#   return response
+    
+    
