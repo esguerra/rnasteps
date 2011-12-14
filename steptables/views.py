@@ -5,6 +5,7 @@ from rnadimer.steptables.models import Forces
 from rnadimer.steptables.models import Steps
 from rnadimer.steptables.models import StepIds
 
+import csv
 
 
 def index(request):

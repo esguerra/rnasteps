@@ -44,6 +44,11 @@ function OnSubmitForm()
   {
     document.myform.action ="/forces";
   }
+  else
+  if(document.myform.operation[2].checked == true)
+  {
+    document.myform.action ="/overlaps";
+  }
   return true;
 }
 </script>
@@ -51,6 +56,8 @@ function OnSubmitForm()
    <input type="radio" name="operation" checked>Base-Pair Step Parameters
    <br/>
    <input type="radio" name="operation" >Force Constants
+   <br/>
+   <input type="radio" name="operation" >Overlaps
    <p>
    <input type="submit" value="GO">
    </p>
@@ -58,7 +65,6 @@ function OnSubmitForm()
 </ctb
 
 
-</ctb>
 <br/><br/>        
         
 
