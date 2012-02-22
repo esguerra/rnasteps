@@ -14,6 +14,25 @@ def index(request):
 def data(request):
     return render_to_response('data/data.htm')
 
+def search_form(request):
+    return render_to_response('search/search_form.htm')
+
+def search(request):
+    if 'q' in request.GET and request.GET['q']:
+        q = request.GET['q']
+        return render_to_response('search/search_results.htm',
+    {'stepid_list': StepIds.objects.filter(ndb_id__icontains=q)
+     | StepIds.objects.filter(pdb_id__icontains=q), 'query': q}, 
+    context_instance = RequestContext(request))
+
+    else:
+        return render_to_response('search/search_form.htm', {'error': True})
+
+def info(request):
+    return render_to_response('info/info.htm',
+    {'bpstep_list': StepIds.objects.order_by('ndb_id')},
+    context_instance = RequestContext(request))
+    
 def stats(request):
     return render_to_response('stats/stats.htm')
 
@@ -50,11 +69,6 @@ def transhw_view(request):
      & StepIds.objects.filter(edge4='W')},
     context_instance = RequestContext(request))
 
-def info(request):
-    return render_to_response('info/info.htm',
-    {'bpstep_list': StepIds.objects.order_by('ndb_id')},
-    context_instance = RequestContext(request))
-
 def csv_list(request):
     """ Renders a csv list  """
     response = HttpResponse(mimetype='text/csv')
@@ -69,7 +83,6 @@ def csv_list(request):
         writer.writerow([sh.step_id, sh.shift, sh.slide, sh.rise, sh.tilt, sh.roll, sh.twist])
     return response
 
-
 def csv_list2(request):
     """ Renders a csv list  """
     response = HttpResponse(mimetype='text/csv')
@@ -82,23 +95,9 @@ def csv_list2(request):
         writer.writerow([ch.step_id, ch.shift, ch.slide, ch.rise, ch.tilt, ch.roll, ch.twist])
     return response
 
-def search_form(request):
-    return render_to_response('search/search_form.htm')
-
-def search(request):
-    if 'q' in request.GET and request.GET['q']:
-        q = request.GET['q']
-        return render_to_response('search/search_results.htm',
-    {'stepid_list': StepIds.objects.filter(ndb_id__icontains=q)
-     | StepIds.objects.filter(pdb_id__icontains=q), 'query': q}, 
-    context_instance = RequestContext(request))
-
-    else:
-        return render_to_response('search/search_form.htm', {'error': True})
-
 #def chart(request):
 #    import os
-#    os.environ['HOME']='/users/esguerra/rnadimer/media/tmp'
+#    os.environ['HOME']='/Users/esguerra/rnadimer/media/tmp'
 #    import random
 #    import datetime    
 #    from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
@@ -128,20 +127,20 @@ def search(request):
 
 def plot(request):
     import os
-#    os.environ['HOME']='/users/esguerra/rnadimer/media/tmp'
-    os.environ['HOME']='/home/rnasteps/rnadimer/media/tmp'
+    os.environ['HOME']='/Users/esguerra/rnadimer/media/tmp'
+#    os.environ['HOME']='/home/rnasteps/rnadimer/media/tmp'
     from numpy import *
     import csv    
     from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
     from matplotlib.figure import Figure
     
-#    rna = open('/users/esguerra/rnadimer/media/tmp/rnaonly.csv', 'r');
-#    dna = open('/users/esguerra/rnadimer/media/tmp/dnaonly.csv', 'r');
-#    protein = open('/users/esguerra/rnadimer/media/tmp/proteins.csv','r');
+    rna = open('/Users/esguerra/rnadimer/media/tmp/rnaonly.csv', 'r');
+    dna = open('/Users/esguerra/rnadimer/media/tmp/dnaonly.csv', 'r');
+    protein = open('/Users/esguerra/rnadimer/media/tmp/proteins.csv','r');
 
-    rna = open('/home/rnasteps/rnadimer/media/tmp/rnaonly.csv', 'r');
-    dna = open('/home/rnasteps/rnadimer/media/tmp/dnaonly.csv', 'r');
-    protein = open('/home/rnasteps/rnadimer/media/tmp/proteins.csv','r');
+#    rna = open('/home/rnasteps/rnadimer/media/tmp/rnaonly.csv', 'r');
+#    dna = open('/home/rnasteps/rnadimer/media/tmp/dnaonly.csv', 'r');
+#    protein = open('/home/rnasteps/rnadimer/media/tmp/proteins.csv','r');
 
 
 
@@ -197,9 +196,9 @@ def plot(request):
 
 #def matplot(request):
 #    import os
-#    os.environ['HOME']='/users/esguerra/rnadimer/media/tmp'
+#    os.environ['HOME']='/Users/esguerra/rnadimer/media/tmp'
 #    
-#    inp = open("/users/esguerra/rnadimer/media/tmp/sixbysix.dat");
+#    inp = open("/Users/esguerra/rnadimer/media/tmp/sixbysix.dat");
 #
 #    #Arrange the data in an array
 #    dist_arr = []

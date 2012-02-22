@@ -2,7 +2,7 @@ import os, sys
 
 #path = '/home/rnasteps'
 path = '/u2/ssd/aa/var_extended/www_rnasteps'
-#path = '/users/esguerra'
+#path = '/Users/esguerra'
 
 if path not in sys.path:
    sys.path.append(path)

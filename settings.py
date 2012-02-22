@@ -1,6 +1,6 @@
-DEBUG = True
-#DEBUG = False
-TEMPLATE_DEBUG = DEBUG
+#DEBUG = True
+DEBUG = False
+#TEMPLATE_DEBUG = DEBUG
 
 
 import os
