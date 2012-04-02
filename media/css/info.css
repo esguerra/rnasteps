@@ -23,7 +23,7 @@ aside{
 
 aside li { 
       color: rgba(200,200,200, 0.9);
-      list-style: inside disc; 
+/*      list-style: inside disc; */
       font-size: 0.8em; 
 /*      margin:10px 2px 10px 2px; */
 }
@@ -174,13 +174,16 @@ footer p {
 
 
 /* Code Boxes */
-pre{
-	display:block;
-	border:2px solid #000;
-	padding:2em;
-	background-color:#ddd;
-        color:black;
-        margin: 4px 20px 4px 20px;
+pre {
+    display:block;
+    border:2px solid #000;
+    padding:2em;
+    white-space: normal;
+/*    white-space: -moz-pre-wrap;
+    white-space: -o-pre-wrap; */
+    background: #ddd;
+    color: black;
+    margin: 4px 20px 4px 20px;
 }
 
 /* Centered text box */

@@ -5,6 +5,7 @@ from django.contrib import admin
 from django.views.static import serve
 from django.conf import settings
 from rnadimer.steptables import views
+from django.views.generic.simple import direct_to_template
 
 admin.autodiscover()
 
@@ -21,6 +22,9 @@ urlpatterns = patterns(
     (r'^search/search-form/$', 'search_form'),
     (r'^search/', 'search'),
     (r'^info/', 'info'),           # Decoupling
+    (r'^news/', 'news'),
+    (r'^credits/', 'credits'),
+    (r'^references/', 'references'),
     (r'^data/', 'data'),
     (r'^stats/', 'stats'),
 #    (r'^charts/image.png$', 'chart'),

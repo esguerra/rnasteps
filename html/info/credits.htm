@@ -5,7 +5,7 @@
 <meta charset="utf-8" />
 <title>RNA BASE-PAIR-STEPS @ Rutgers</title>
 <link rel="stylesheet" type="text/css" media="all" href="/media/css/reset.css"/>
-<link rel="stylesheet" type="text/css" media="all" href="/media/css/main.css"  />
+<link rel="stylesheet" type="text/css" media="all" href="/media/css/info.css"  />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 </head>
 
@@ -13,8 +13,9 @@
 <body>
 <header class="group">
 <h1 id="logo">
-<a href="/"><img src="/media/img/logo.png" width="226" height="50" alt="RNA STEPS"></a>
+<a href="/"><img src="/media/img/logo.png" width="226" height="50" alt="RNA BPSDB"></a>
 </h1>
+
 
 <nav>
 <ul>
@@ -26,79 +27,41 @@
 </nav>
 </header>
 
-<br />
-<br />
-
-<ctb>
-    {% if error %}
-	<h2>Search by NDB (PDB) identifier or keywords</h2> 
-	<br/>
-    {% endif %}
-        <form action="/search/" method="get">
-	  <input type="text" name="q">
-	  <input type="submit" value="Search">
-	  <br/><br/>
-	  Example: "<a href="/search/?q=tr0001">tr0001</a>"
-	</form>
-</ctb>
-<br/><br/>
-
-<ctb>
-	<h2>Leontis-Westhof Patterns for Base-Pairs</h2>
-	<br/>
-	<a href="/lwclass/cisww-view">cis W/W</a>
-	<br/>
-	<a href="/lwclass/transhs-view">trans H/S</a>
-	<br/>
-	<a href="/lwclass/transhw-view">trans H/W</a>
-</ctb>
-<br/><br/>
+<hr/>
 
 
+<aside>
+<ul>
+<li><a href="/info">About</a></li>
+<li><a href="/credits">Credits</a></li>
+<li><a href="/news">News</a></li>
+<li><a href="/references">Reference</a></li>
+<li><a href="/stats">Stats</a></li>
+</ul>
+</aside>
 
-<ctb>
-	<h2>Leontis-Westhof Patterns per Base-Pair Step</h2>
-	<br/>
+<article>
+<section>
+<h2><span id="credits">Credits</span></h2>
+<br/>
+- rnasteps has been developed as a django web-framework by Mauricio Esguerra.
+<br/>
+- The relational database that does all the magic of integrating 3DNA,
+rnaview,  and the  helical  region recognition  algorithms  is due  to
+Yurong Xin.
+<br/>
+- The relevance of the rigid  block model for understanding RNA and in
+general nucleic acids is due to Wilma K. Olson.
+<br/>
+- The 3DNA  software for computing rigid block  parameters for nucleic
+acids is maintained and actively developed on a voluntary basis by Xiang-Yun Lu.
 
-<table id="newspaper-b" summary="Leontis-Westhof Classification of Base-Pair Steps.">
-  <tr>
-    <th> </th> 
-    <th>cWW</th>
-    <th>tHS</th>
-    <th>tHW</th>
-  </tr>
+<br/>
+<br/>
+<br/>
+</section>
 
-  <tr>
-    <td>cWW</td>
-    <td>cWW</td>
-    <td>cWW</td>
-    <td>cWW</td>    
-  </tr>
-
-  <tr>
-    <td>tHS</td>
-    <td>tHS</td>
-    <td>tHS</td>
-    <td>tHS</td>    
-  </tr>
-
-  <tr>
-    <td>tHW</td>
-    <td>tHW</td>
-    <td>tHW</td>
-    <td>tHW</td>    
-</tr>  
-</table>
-</ctb>
-<br/><br/>
-
-
-
-<br />
-<br />
-<br />
-
-
+</article>
 
 
 <!-- FOOTER SECTION -->
@@ -134,19 +97,18 @@ while(x=eval(x));
 
 
 <script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ?
-"https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost +
-"google-analytics.com/ga.js'
-type='text/javascript'%3E%3C/script%3E"));
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2306840-8']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
 </script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-2306840-1");
-pageTracker._trackPageview();
-} catch(err) {}
-</script>
+
 </body>
 </html>
-
-

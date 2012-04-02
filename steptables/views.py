@@ -32,7 +32,17 @@ def info(request):
     return render_to_response('info/info.htm',
     {'bpstep_list': StepIds.objects.order_by('ndb_id')},
     context_instance = RequestContext(request))
-    
+
+def news(request):
+    return render_to_response('info/news.htm')
+
+
+def credits(request):
+    return render_to_response('info/credits.htm')
+
+def references(request):
+    return render_to_response('info/references.htm')
+
 def stats(request):
     return render_to_response('stats/stats.htm')
 
@@ -97,8 +107,8 @@ def csv_list2(request):
 
 def plot(request):
     import os
-#    homies = 'Users/esguerra'
-    homies = '/home/rnasteps'
+    homies = 'Users/esguerra'
+#    homies = '/home/rnasteps'
     static = '/rnadimer/media/tmp'
     os.environ['HOME']=homies+static
     from numpy import *
