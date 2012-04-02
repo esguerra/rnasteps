@@ -95,54 +95,20 @@ def csv_list2(request):
         writer.writerow([ch.step_id, ch.shift, ch.slide, ch.rise, ch.tilt, ch.roll, ch.twist])
     return response
 
-#def chart(request):
-#    import os
-#    os.environ['HOME']='/Users/esguerra/rnadimer/media/tmp'
-#    import random
-#    import datetime    
-#    from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
-#    from matplotlib.figure import Figure
-#    from matplotlib.dates import DateFormatter
-#    
-#    fig=Figure()
-#    ax=fig.add_subplot(111)
-#    x=[]
-#    y=[]
-#    now=datetime.datetime.now()
-#    delta=datetime.timedelta(days=1)
-#    for i in range(10):
-#        x.append(now)
-#        now+=delta
-#        y.append(random.randint(0, 1000))
-#    ax.plot_date(x, y, '-')
-#    ax.xaxis.set_major_formatter(DateFormatter('%Y-%m-%d'))
-#    fig.autofmt_xdate()
-#    canvas=FigureCanvas(fig)
-#    #response=django.http.HttpResponse(content_type='image/png')
-#    response=HttpResponse(content_type='image/png')
-#    canvas.print_png(response)
-#    return response
-
-
-
 def plot(request):
     import os
-    os.environ['HOME']='/Users/esguerra/rnadimer/media/tmp'
-#    os.environ['HOME']='/home/rnasteps/rnadimer/media/tmp'
+#    homies = 'Users/esguerra'
+    homies = '/home/rnasteps'
+    static = '/rnadimer/media/tmp'
+    os.environ['HOME']=homies+static
     from numpy import *
     import csv    
     from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
     from matplotlib.figure import Figure
-    
-    rna = open('/Users/esguerra/rnadimer/media/tmp/rnaonly.csv', 'r');
-    dna = open('/Users/esguerra/rnadimer/media/tmp/dnaonly.csv', 'r');
-    protein = open('/Users/esguerra/rnadimer/media/tmp/proteins.csv','r');
 
-#    rna = open('/home/rnasteps/rnadimer/media/tmp/rnaonly.csv', 'r');
-#    dna = open('/home/rnasteps/rnadimer/media/tmp/dnaonly.csv', 'r');
-#    protein = open('/home/rnasteps/rnadimer/media/tmp/proteins.csv','r');
-
-
+    rna     = open(homies+static+'/rnaonly.csv', 'r');
+    dna     = open(homies+static+'/dnaonly.csv', 'r');
+    protein = open(homies+static+'/proteins.csv','r');
 
     readrna = csv.reader(rna)        
     rnadata = []

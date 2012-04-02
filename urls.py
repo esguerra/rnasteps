@@ -13,8 +13,8 @@ admin.autodiscover()
 
 
 
-urlpatterns = patterns('rnadimer.steptables.views',
-    # Example:
+urlpatterns = patterns(
+    'rnadimer.steptables.views',
     (r'^$', 'index'),
     (r'^download-form1/$', views.csv_list),
     (r'^download-form2/$', views.csv_list2),
@@ -25,7 +25,9 @@ urlpatterns = patterns('rnadimer.steptables.views',
     (r'^stats/', 'stats'),
 #    (r'^charts/image.png$', 'chart'),
 #    (r'^matrix/image.png$', 'matplot'),
-    (r'^charts/image.png$', 'plot'),
+#    (r'^media/(?P<path>.*)$', 'media'),
+#    (r'^charts/image.png$', 'plot'),
+    (r'^plot/', 'plot'),    
     (r'^steps/', 'step_view'),     # Decoupling
     (r'^tests/', 'test_view'),     # Decoupling
     (r'^lwclass/cisww-view/$', 'cisww_view'),         # Decoupling
@@ -35,10 +37,11 @@ urlpatterns = patterns('rnadimer.steptables.views',
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     (r'^admin/', include(admin.site.urls))
 #    (r'^admin/(.*)', admin.site.root)
+                           
 )
 
-if settings.DEBUG:
-    urlpatterns += patterns('',
+#if settings.DEBUG:
+urlpatterns += patterns('',
         (r'^media/(?P<path>.*)$', 'django.views.static.serve',
         {'document_root': os.path.join(settings.PROJECT_DIR,  'media')}),
     )
