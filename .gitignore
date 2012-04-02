@@ -26,6 +26,8 @@
 *.log
 *.sql
 *.sqlite
+media/tmp/.matplotlib*
+media/tmp/.matplotlib/*
 
 # OS generated files #
 ######################
