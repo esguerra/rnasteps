@@ -5,7 +5,7 @@ from django.contrib import admin
 from django.views.static import serve
 from django.conf import settings
 from rnadimer.steptables import views
-from django.views.generic.simple import direct_to_template
+#from django.views.generic.simple import direct_to_template
 
 admin.autodiscover()
 
@@ -36,12 +36,11 @@ urlpatterns = patterns(
     (r'^tests/', 'test_view'),     # Decoupling
     (r'^lwclass/cisww-view/$', 'cisww_view'),         # Decoupling
     (r'^lwclass/transhs-view/$', 'transhs_view'),     # Decoupling
-    (r'^lwclass/transhw-view/$', 'transhw_view'),     # Decoupling                       
+    (r'^lwclass/transhw-view/$', 'transhw_view'),     # Decoupling
     (r'^forces/', 'force_view'),   # Decoupling                       
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
-    (r'^admin/', include(admin.site.urls))
+    (r'^admin/', include(admin.site.urls)),
 #    (r'^admin/(.*)', admin.site.root)
-                           
 )
 
 #if settings.DEBUG:

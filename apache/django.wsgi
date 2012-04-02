@@ -1,7 +1,7 @@
 import os, sys
 
-path = '/home/rnasteps'
-#path = '/u2/ssd/aa/var_extended/www_rnasteps'
+#path = '/home/rnasteps'
+path = '/u2/ssd/aa/var_extended/www_rnasteps'
 #path = '/Users/esguerra'
 
 if path not in sys.path:
