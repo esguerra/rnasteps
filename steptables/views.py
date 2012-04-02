@@ -107,8 +107,8 @@ def csv_list2(request):
 
 def plot(request):
     import os
-    homies = 'Users/esguerra'
-#    homies = '/home/rnasteps'
+#    homies = 'Users/esguerra'
+    homies = '/home/rnasteps'
     static = '/rnadimer/media/tmp'
     os.environ['HOME']=homies+static
     from numpy import *
