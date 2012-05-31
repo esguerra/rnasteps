@@ -2,14 +2,34 @@
 <html>
 
 <head>
+<meta charset="utf-8" />
 <title>404 Not Found Error</title>
+<link rel="stylesheet" type="text/css" media="all" href="/media/css/reset.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="/media/css/info.css"  />
 </head>
+    
 
-
-<body>
-<h1>
-  The file was not found.
-</h1>
-
+<body>        
+<h1>404 Error!</h1>
+<h2>"The page you're looking for cannot be found.
+You can try again or visit our <a 
+title="RNASTEPS" href="/">Home 
+Page</a>."</h2>
+<pre><script>
+var Quotation=new Array() // do not change this!
+Quotation[0] = "\"I know that I am a human being.\" In order to see how unclear \n\
+the sense of this proposition is, consider its negation. At most it might be \n\
+taken to mean \"I know I have the organs of a human\". (E. g. a brain which, \n\
+after all, no one has ever yet seen.) But what about such a proposition as \n\
+\"I know I have a brain\"? Can I doubt it? Grounds for doubt are lacking! \n\
+Everything speaks in its favour, nothing against it. Nevertheless it is \n\
+imaginable that my skull should turn out empty when it was operated on.";
+Quotation[1] = "Uttering a word is like striking a note on the keyboard of the imagination.";
+Quotation[2] = "If a lion could talk, we could not understand him.";
+var Q = Quotation.length;
+var whichQuotation=Math.round(Math.random()*(Q-1));
+function showQuotation(){document.write(Quotation[whichQuotation]);}
+showQuotation();
+</script></pre>
 </body>
 </html>
