@@ -36,3 +36,13 @@ ehthumbs.db
 Icon?
 Thumbs.db
 
+
+# Virtenv folders    #
+######################
+bin
+include
+lib
+pip-selfcheck.json
+
+
+
